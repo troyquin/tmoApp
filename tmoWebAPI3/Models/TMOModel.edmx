@@ -1,0 +1,1554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TMOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ccy">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ccy_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="ccy_decm_plc" Type="smallint" />
+          <Property Name="ccy_ind" Type="smallint" />
+          <Property Name="ccy_quote_unit" Type="smallint" />
+          <Property Name="ccy_seq" Type="smallint" />
+          <Property Name="ccy_internal_code" Type="varchar" MaxLength="5" />
+          <Property Name="ccy_cyclic_no" Type="smallint" />
+          <Property Name="ccy_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="ccy_amend_date" Type="datetime" />
+          <Property Name="ccy_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ccyr">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccyr_ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="ccyr_ccyt_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ccyr_date_time" Type="datetime" />
+          <Property Name="ccyr_cost_rate" Type="float" />
+          <Property Name="ccyr_margin_adj" Type="real" />
+          <Property Name="ccyr_rate" Type="float" />
+          <Property Name="ccyr_cyclic_no" Type="smallint" />
+          <Property Name="ccyr_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="ccyr_amend_date" Type="datetime" />
+          <Property Name="ccyr_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ccyt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccyt_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ccyt_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ccyt_margin_ind" Type="varchar" MaxLength="1" />
+          <Property Name="ccyt_cyclic_no" Type="smallint" />
+          <Property Name="ccyt_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="ccyt_amend_date" Type="datetime" />
+          <Property Name="ccyt_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clnt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="clnt_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="clnt_short_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="clnt_long_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="clnt_cyclic_no" Type="smallint" />
+          <Property Name="clnt_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="clnt_amend_date" Type="datetime" />
+          <Property Name="clnt_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cloc">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cloc_clnt_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cloc_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="cloc_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="cloc_addr_1" Type="varchar" MaxLength="50" />
+          <Property Name="cloc_addr_2" Type="varchar" MaxLength="50" />
+          <Property Name="cloc_addr_3" Type="varchar" MaxLength="50" />
+          <Property Name="cloc_postcode" Type="varchar" MaxLength="15" />
+          <Property Name="cloc_cnty_code" Type="varchar" MaxLength="2" />
+          <Property Name="cloc_limit" Type="float" />
+          <Property Name="cloc_email_addr" Type="varchar" MaxLength="50" />
+          <Property Name="cloc_phone_no" Type="varchar" MaxLength="20" />
+          <Property Name="cloc_cyclic_no" Type="smallint" />
+          <Property Name="cloc_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="cloc_amend_date" Type="datetime" />
+          <Property Name="cloc_state" Type="varchar" MaxLength="1" />
+          <Property Name="cloc_ttyp_type" Type="varchar" MaxLength="2" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cnrd">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cnrd_cnty_code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="cnrd_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="cnrd_ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="cnrd_sort_order" Type="smallint" />
+          <Property Name="cnrd_cyclic_no" Type="smallint" />
+          <Property Name="cnrd_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="cnrd_amend_date" Type="datetime" />
+          <Property Name="cnrd_state" Type="char" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cnty">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cnty_code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="cnty_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="cnty_cyclic_no" Type="smallint" />
+          <Property Name="cnty_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="cnty_amend_date" Type="datetime" />
+          <Property Name="cnty_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comments_table" Type="varchar" MaxLength="8" />
+          <Property Name="comments_index_1" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="comments_index_2" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="comments_notes" Type="varchar" MaxLength="200" />
+          <Property Name="comments_cyclic_no" Type="smallint" Nullable="false" />
+          <Property Name="comments_user_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="comments_amend_date" Type="datetime" Nullable="false" />
+          <Property Name="comments_state" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comn">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comn_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="comn_clnt_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="comn_sub_prod" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="comn_ttyp_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="comn_settle_ccy" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="comn_min_amt" Type="float" Nullable="false" />
+          <Property Name="comn_max_amt" Type="float" Nullable="false" />
+          <Property Name="comn_fixed" Type="float" />
+          <Property Name="comn_fee_per_item" Type="float" />
+          <Property Name="comn_rate" Type="float" />
+          <Property Name="comn_cyclic_no" Type="smallint" />
+          <Property Name="comn_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="comn_amend_date" Type="datetime" />
+          <Property Name="comn_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comp">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comp_tran_comp_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="comp_id_type" Type="varchar" MaxLength="40" />
+          <Property Name="comp_id_number" Type="varchar" MaxLength="30" />
+          <Property Name="comp_id_issue_place" Type="varchar" MaxLength="40" />
+          <Property Name="comp_id_issue_date" Type="datetime" />
+          <Property Name="comp_spare_1" Type="varchar" MaxLength="40" />
+          <Property Name="comp_spare_2" Type="varchar" MaxLength="40" />
+          <Property Name="comp_cyclic_no" Type="smallint" />
+          <Property Name="comp_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="comp_amend_date" Type="datetime" />
+          <Property Name="comp_state" Type="char" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comt_comn_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="comt_description" Type="varchar" MaxLength="30" />
+          <Property Name="comt_cyclic_no" Type="smallint" />
+          <Property Name="comt_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="comt_amend_date" Type="datetime" />
+          <Property Name="comt_state" Type="varchar" MaxLength="50" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="deli">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="deli_comp_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="deli_tran_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="deli_delv_date" Type="datetime" />
+          <Property Name="deli_name_1" Type="varchar" MaxLength="35" />
+          <Property Name="deli_name_2" Type="varchar" MaxLength="35" />
+          <Property Name="deli_company_name" Type="varchar" MaxLength="35" />
+          <Property Name="deli_dept_name" Type="varchar" MaxLength="35" />
+          <Property Name="deli_addr_1" Type="varchar" MaxLength="35" />
+          <Property Name="deli_addr_2" Type="varchar" MaxLength="35" />
+          <Property Name="deli_addr_3" Type="varchar" MaxLength="35" />
+          <Property Name="deli_postcode" Type="varchar" MaxLength="15" />
+          <Property Name="deli_phone" Type="varchar" MaxLength="25" />
+          <Property Name="deli_instructions" Type="varchar" MaxLength="2000" />
+          <Property Name="deli_comments" Type="varchar" MaxLength="2000" />
+          <Property Name="deli_dlvy_code" Type="int" />
+          <Property Name="deli_user_def_1" Type="varchar" MaxLength="15" />
+          <Property Name="deli_user_def_2" Type="varchar" MaxLength="15" />
+          <Property Name="deli_cyclic_no" Type="smallint" />
+          <Property Name="deli_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="deli_amend_date" Type="datetime" />
+          <Property Name="deli_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dlvy">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="dlvy_code" Type="int" Nullable="false" />
+          <Property Name="dlvy_description" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="dlvy_rate" Type="float" Nullable="false" />
+          <Property Name="dlvy_ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="dlvy_sort_order" Type="tinyint" Nullable="false" />
+          <Property Name="dlvy_cyclic_no" Type="smallint" />
+          <Property Name="dlvy_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="dlvy_amend_date" Type="datetime" />
+          <Property Name="dlvy_state" Type="varchar" MaxLength="50" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estl">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="estl_tran_comp_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estl_stlt_type" Type="varchar" MaxLength="2" />
+          <Property Name="estl_card_type" Type="varchar" MaxLength="2" />
+          <Property Name="estl_card_expiry" Type="varchar" MaxLength="5" />
+          <Property Name="estl_card_name" Type="varchar" MaxLength="30" />
+          <Property Name="estl_card_number" Type="varchar" MaxLength="20" />
+          <Property Name="estl_card_auth" Type="varchar" MaxLength="30" />
+          <Property Name="estl_card_start" Type="varchar" MaxLength="5" />
+          <Property Name="estl_issue_no" Type="varchar" MaxLength="15" />
+          <Property Name="estl_amount" Type="float" />
+          <Property Name="estl_ccy_code" Type="varchar" MaxLength="5" />
+          <Property Name="estl_user_def_1" Type="varchar" MaxLength="15" />
+          <Property Name="estl_user_def_2" Type="varchar" MaxLength="15" />
+          <Property Name="estl_cyclic_no" Type="smallint" />
+          <Property Name="estl_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="estl_amend_date" Type="datetime" />
+          <Property Name="estl_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inst">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="inst_property" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="inst_description" Type="varchar" MaxLength="100" />
+          <Property Name="inst_value" Type="varchar" MaxLength="200" />
+          <Property Name="inst_sort_order" Type="tinyint" />
+          <Property Name="inst_encrypt" Type="bit" Nullable="false" />
+          <Property Name="inst_cyclic_no" Type="smallint" Nullable="false" />
+          <Property Name="inst_user_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="inst_amend_date" Type="datetime" Nullable="false" />
+          <Property Name="inst_state" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="phist">
+          <Key>
+            <PropertyRef Name="phist_id" />
+          </Key>
+          <Property Name="phist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phist_usrs_unique_id" Type="int" Nullable="false" />
+          <Property Name="phist_password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="phist_amend_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="pref">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="pref_clnt_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="pref_loyalty_name" Type="varchar" MaxLength="50" />
+          <Property Name="pref_email" Type="varchar" MaxLength="65" />
+          <Property Name="pref_home_www" Type="varchar" MaxLength="50" />
+          <Property Name="pref_main_back" Type="char" MaxLength="7" />
+          <Property Name="pref_main_fore" Type="char" MaxLength="7" />
+          <Property Name="pref_table_back" Type="char" MaxLength="7" />
+          <Property Name="pref_table_fore" Type="char" MaxLength="7" />
+          <Property Name="pref_check_blz" Type="char" MaxLength="1" />
+          <Property Name="pref_check_accntno" Type="char" MaxLength="1" />
+          <Property Name="pref_home_dlvy" Type="char" MaxLength="1" />
+          <Property Name="pref_cyclic_no" Type="smallint" Nullable="false" />
+          <Property Name="pref_user_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="pref_amend_date" Type="datetime" Nullable="false" />
+          <Property Name="pref_state" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="prod">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="prod_sub_prod" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="prod_ttyp_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="prod_desc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prod_min_order" Type="int" />
+          <Property Name="prod_max_order" Type="int" />
+          <Property Name="prod_show_available" Type="bit" />
+          <Property Name="prod_ccyt_type" Type="varchar" MaxLength="2" />
+          <Property Name="prod_cyclic_no" Type="smallint" />
+          <Property Name="prod_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="prod_amend_date" Type="datetime" />
+          <Property Name="prod_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="setl">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="setl_tran_comp_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="setl_xref_id" Type="varchar" MaxLength="10" />
+          <Property Name="setl_type" Type="varchar" MaxLength="2" />
+          <Property Name="setl_clnt_id" Type="varchar" MaxLength="10" />
+          <Property Name="setl_cloc_id" Type="varchar" MaxLength="4" />
+          <Property Name="setl_appl_name1" Type="varchar" MaxLength="35" />
+          <Property Name="setl_appl_name2" Type="varchar" MaxLength="35" />
+          <Property Name="setl_appl_addr1" Type="varchar" MaxLength="35" />
+          <Property Name="setl_appl_addr2" Type="varchar" MaxLength="35" />
+          <Property Name="setl_appl_addr3" Type="varchar" MaxLength="35" />
+          <Property Name="setl_email" Type="varchar" MaxLength="65" />
+          <Property Name="setl_appl_postcode" Type="varchar" MaxLength="15" />
+          <Property Name="setl_local_ccy_amount" Type="float" />
+          <Property Name="setl_comm_amount" Type="float" />
+          <Property Name="setl_tax_amount" Type="float" />
+          <Property Name="setl_ccy_code" Type="varchar" MaxLength="5" />
+          <Property Name="setl_delivery_code" Type="int" />
+          <Property Name="setl_delivery_amt" Type="float" />
+          <Property Name="setl_status" Type="smallint" Nullable="false" />
+          <Property Name="setl_phone_no" Type="varchar" MaxLength="25" />
+          <Property Name="setl_work_phone" Type="varchar" MaxLength="25" />
+          <Property Name="setl_mobile_phone" Type="varchar" MaxLength="25" />
+          <Property Name="setl_dlvy_ref" Type="varchar" MaxLength="20" />
+          <Property Name="setl_market_info" Type="tinyint" />
+          <Property Name="setl_loyalty_no" Type="varchar" MaxLength="20" />
+          <Property Name="setl_user_def_1" Type="varchar" MaxLength="15" />
+          <Property Name="setl_user_def_2" Type="varchar" MaxLength="15" />
+          <Property Name="setl_cyclic_no" Type="smallint" Nullable="false" />
+          <Property Name="setl_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="setl_amend_date" Type="datetime" Nullable="false" />
+          <Property Name="setl_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stdn">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="stdn_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="stdn_ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="stdn_demn_price" Type="float" Nullable="false" />
+          <Property Name="stdn_denm_class" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="stdn_cyclic_no" Type="smallint" />
+          <Property Name="stdn_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="stdn_amend_date" Type="datetime" />
+          <Property Name="stdn_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stlt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="stlt_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="stlt_code" Type="varchar" MaxLength="10" />
+          <Property Name="stlt_name" Type="varchar" MaxLength="35" />
+          <Property Name="stlt_cyclic_no" Type="smallint" />
+          <Property Name="stlt_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="stlt_amend_date" Type="datetime" />
+          <Property Name="stlt_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="taxb">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="taxb_code" Type="smallint" Nullable="false" />
+          <Property Name="taxb_basis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="taxb_cyclic_no" Type="smallint" />
+          <Property Name="taxb_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="taxb_amend_date" Type="datetime" />
+          <Property Name="taxb_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="taxs">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="taxs_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="taxs_sub_prod_id" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="taxs_taxb_code" Type="smallint" Nullable="false" />
+          <Property Name="taxs_ttyp_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="taxs_rate" Type="float" />
+          <Property Name="taxs_cyclic_no" Type="smallint" />
+          <Property Name="taxs_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="taxs_amend_date" Type="datetime" />
+          <Property Name="taxs_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tddt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="tddt_tran_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tddt_row_no" Type="smallint" Nullable="false" />
+          <Property Name="tddt_ccy_denm" Type="money" />
+          <Property Name="tddt_pack_size" Type="smallint" />
+          <Property Name="tddt_qty" Type="int" />
+          <Property Name="tddt_denm_class" Type="char" MaxLength="1" />
+          <Property Name="tddt_user_def_1" Type="varchar" MaxLength="15" />
+          <Property Name="tddt_user_def_2" Type="varchar" MaxLength="15" />
+          <Property Name="tddt_cyclic_no" Type="smallint" />
+          <Property Name="tddt_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="tddt_amend_date" Type="datetime" />
+          <Property Name="tddt_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="trans">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="tran_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tran_comp_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tran_prod_id" Type="varchar" MaxLength="6" />
+          <Property Name="tran_sub_prod" Type="varchar" MaxLength="6" />
+          <Property Name="tran_ttyp_type" Type="varchar" MaxLength="2" />
+          <Property Name="tran_date" Type="datetime" />
+          <Property Name="tran_clnt_id" Type="varchar" MaxLength="10" />
+          <Property Name="tran_cloc_id" Type="varchar" MaxLength="4" />
+          <Property Name="tran_ccy_code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="tran_ccy1_amt" Type="float" />
+          <Property Name="tran_exch_rate" Type="float" />
+          <Property Name="tran_true_rate" Type="float" />
+          <Property Name="tran_denm_mix" Type="tinyint" />
+          <Property Name="tran_tourist_related" Type="bit" />
+          <Property Name="tran_user_def_1" Type="varchar" MaxLength="15" />
+          <Property Name="tran_user_def_2" Type="varchar" MaxLength="15" />
+          <Property Name="tran_cyclic_no" Type="smallint" Nullable="false" />
+          <Property Name="tran_user_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tran_amend_date" Type="datetime" Nullable="false" />
+          <Property Name="tran_state" Type="varchar" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ttyp">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ttyp_type" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="ttyp_description" Type="varchar" MaxLength="35" />
+          <Property Name="ttyp_cyclic_no" Type="smallint" />
+          <Property Name="ttyp_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="ttyp_amend_date" Type="datetime" />
+          <Property Name="ttyp_state" Type="char" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usrs">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="usrs_company" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="usrs_login" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="usrs_password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="usrs_level" Type="float" Nullable="false" />
+          <Property Name="usrs_pwd_changed_date" Type="datetime" />
+          <Property Name="usrs_pwd_attempts" Type="smallint" />
+          <Property Name="usrs_status" Type="char" MaxLength="1" />
+          <Property Name="usrs_cyclic_no" Type="smallint" />
+          <Property Name="usrs_user_id" Type="varchar" MaxLength="10" />
+          <Property Name="usrs_amend_date" Type="datetime" />
+          <Property Name="usrs_state" Type="char" MaxLength="1" />
+          <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TMOModelStoreContainer">
+          <EntitySet Name="ccy" EntityType="Self.ccy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ccyr" EntityType="Self.ccyr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ccyt" EntityType="Self.ccyt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clnt" EntityType="Self.clnt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cloc" EntityType="Self.cloc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cnrd" EntityType="Self.cnrd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cnty" EntityType="Self.cnty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comn" EntityType="Self.comn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comp" EntityType="Self.comp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comt" EntityType="Self.comt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deli" EntityType="Self.deli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dlvy" EntityType="Self.dlvy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estl" EntityType="Self.estl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inst" EntityType="Self.inst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="phist" EntityType="Self.phist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pref" EntityType="Self.pref" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="prod" EntityType="Self.prod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="setl" EntityType="Self.setl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stdn" EntityType="Self.stdn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stlt" EntityType="Self.stlt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="taxb" EntityType="Self.taxb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="taxs" EntityType="Self.taxs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tddt" EntityType="Self.tddt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trans" EntityType="Self.trans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ttyp" EntityType="Self.ttyp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usrs" EntityType="Self.usrs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TMOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ccy">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccy_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccy_decm_plc" Type="Int16" />
+          <Property Name="ccy_ind" Type="Int16" />
+          <Property Name="ccy_quote_unit" Type="Int16" />
+          <Property Name="ccy_seq" Type="Int16" />
+          <Property Name="ccy_internal_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ccy_cyclic_no" Type="Int16" />
+          <Property Name="ccy_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ccy_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="ccy_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ccyr">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccyr_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccyr_ccyt_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccyr_date_time" Type="DateTime" Precision="3" />
+          <Property Name="ccyr_cost_rate" Type="Double" />
+          <Property Name="ccyr_margin_adj" Type="Single" />
+          <Property Name="ccyr_rate" Type="Double" />
+          <Property Name="ccyr_cyclic_no" Type="Int16" />
+          <Property Name="ccyr_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ccyr_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="ccyr_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ccyt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ccyt_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccyt_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ccyt_margin_ind" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ccyt_cyclic_no" Type="Int16" />
+          <Property Name="ccyt_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ccyt_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="ccyt_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="clnt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clnt_short_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clnt_long_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clnt_cyclic_no" Type="Int16" />
+          <Property Name="clnt_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="clnt_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="clnt_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="cloc">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cloc_clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cloc_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cloc_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cloc_addr_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_addr_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_addr_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_postcode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_cnty_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_limit" Type="Double" />
+          <Property Name="cloc_email_addr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_phone_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_cyclic_no" Type="Int16" />
+          <Property Name="cloc_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="cloc_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="cloc_ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="cnrd">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cnrd_cnty_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnrd_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnrd_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnrd_sort_order" Type="Int16" />
+          <Property Name="cnrd_cyclic_no" Type="Int16" />
+          <Property Name="cnrd_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cnrd_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="cnrd_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="cnty">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="cnty_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnty_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnty_cyclic_no" Type="Int16" />
+          <Property Name="cnty_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="cnty_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="cnty_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comments_table" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="comments_index_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comments_index_2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comments_notes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="comments_cyclic_no" Type="Int16" Nullable="false" />
+          <Property Name="comments_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comments_amend_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="comments_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="comn">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comn_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comn_clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comn_sub_prod" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comn_ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comn_settle_ccy" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comn_min_amt" Type="Double" Nullable="false" />
+          <Property Name="comn_max_amt" Type="Double" Nullable="false" />
+          <Property Name="comn_fixed" Type="Double" />
+          <Property Name="comn_fee_per_item" Type="Double" />
+          <Property Name="comn_rate" Type="Double" />
+          <Property Name="comn_cyclic_no" Type="Int16" />
+          <Property Name="comn_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="comn_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="comn_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="comp">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comp_tran_comp_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comp_id_type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="comp_id_number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="comp_id_issue_place" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="comp_id_issue_date" Type="DateTime" Precision="3" />
+          <Property Name="comp_spare_1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="comp_spare_2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="comp_cyclic_no" Type="Int16" />
+          <Property Name="comp_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="comp_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="comp_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="comt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="comt_comn_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comt_description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="comt_cyclic_no" Type="Int16" />
+          <Property Name="comt_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="comt_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="comt_state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="deli">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="deli_comp_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deli_tran_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deli_delv_date" Type="DateTime" Precision="3" />
+          <Property Name="deli_name_1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_name_2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_company_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_dept_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_addr_1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_addr_2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_addr_3" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="deli_postcode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="deli_phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="deli_instructions" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="deli_comments" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="deli_dlvy_code" Type="Int32" />
+          <Property Name="deli_user_def_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="deli_user_def_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="deli_cyclic_no" Type="Int16" />
+          <Property Name="deli_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="deli_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="deli_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="dlvy">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="dlvy_code" Type="Int32" Nullable="false" />
+          <Property Name="dlvy_description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dlvy_rate" Type="Double" Nullable="false" />
+          <Property Name="dlvy_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dlvy_sort_order" Type="Byte" Nullable="false" />
+          <Property Name="dlvy_cyclic_no" Type="Int16" />
+          <Property Name="dlvy_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dlvy_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="dlvy_state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="dtproperty">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estl">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="estl_tran_comp_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estl_stlt_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_expiry" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_auth" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="estl_card_start" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="estl_issue_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estl_amount" Type="Double" />
+          <Property Name="estl_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="estl_user_def_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estl_user_def_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="estl_cyclic_no" Type="Int16" />
+          <Property Name="estl_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="estl_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="estl_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="inst">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="inst_property" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inst_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="inst_value" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="inst_sort_order" Type="Byte" />
+          <Property Name="inst_encrypt" Type="Boolean" Nullable="false" />
+          <Property Name="inst_cyclic_no" Type="Int16" Nullable="false" />
+          <Property Name="inst_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inst_amend_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="inst_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="phist">
+          <Key>
+            <PropertyRef Name="phist_id" />
+          </Key>
+          <Property Name="phist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phist_usrs_unique_id" Type="Int32" Nullable="false" />
+          <Property Name="phist_password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phist_amend_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="pref">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="pref_clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pref_loyalty_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pref_email" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Name="pref_home_www" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pref_main_back" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="pref_main_fore" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="pref_table_back" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="pref_table_fore" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="pref_check_blz" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="pref_check_accntno" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="pref_home_dlvy" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="pref_cyclic_no" Type="Int16" Nullable="false" />
+          <Property Name="pref_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pref_amend_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="pref_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="prod">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_sub_prod" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_min_order" Type="Int32" />
+          <Property Name="prod_max_order" Type="Int32" />
+          <Property Name="prod_show_available" Type="Boolean" />
+          <Property Name="prod_ccyt_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="prod_cyclic_no" Type="Int16" />
+          <Property Name="prod_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="prod_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="prod_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="setl">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="setl_tran_comp_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="setl_xref_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="setl_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="setl_clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="setl_cloc_id" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_name1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_name2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_addr1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_addr2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_addr3" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="setl_email" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Name="setl_appl_postcode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="setl_local_ccy_amount" Type="Double" />
+          <Property Name="setl_comm_amount" Type="Double" />
+          <Property Name="setl_tax_amount" Type="Double" />
+          <Property Name="setl_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="setl_delivery_code" Type="Int32" />
+          <Property Name="setl_delivery_amt" Type="Double" />
+          <Property Name="setl_status" Type="Int16" Nullable="false" />
+          <Property Name="setl_phone_no" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="setl_work_phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="setl_mobile_phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="setl_dlvy_ref" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="setl_market_info" Type="Byte" />
+          <Property Name="setl_loyalty_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="setl_user_def_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="setl_user_def_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="setl_cyclic_no" Type="Int16" Nullable="false" />
+          <Property Name="setl_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="setl_amend_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="setl_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="stdn">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="stdn_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stdn_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stdn_demn_price" Type="Double" Nullable="false" />
+          <Property Name="stdn_denm_class" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="stdn_cyclic_no" Type="Int16" />
+          <Property Name="stdn_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="stdn_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="stdn_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="stlt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="stlt_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stlt_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="stlt_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="stlt_cyclic_no" Type="Int16" />
+          <Property Name="stlt_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="stlt_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="stlt_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="taxb">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="taxb_code" Type="Int16" Nullable="false" />
+          <Property Name="taxb_basis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taxb_cyclic_no" Type="Int16" />
+          <Property Name="taxb_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="taxb_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="taxb_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tax">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="taxs_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taxs_sub_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taxs_taxb_code" Type="Int16" Nullable="false" />
+          <Property Name="taxs_ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="taxs_rate" Type="Double" />
+          <Property Name="taxs_cyclic_no" Type="Int16" />
+          <Property Name="taxs_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="taxs_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="taxs_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tddt">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="tddt_tran_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tddt_row_no" Type="Int16" Nullable="false" />
+          <Property Name="tddt_ccy_denm" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tddt_pack_size" Type="Int16" />
+          <Property Name="tddt_qty" Type="Int32" />
+          <Property Name="tddt_denm_class" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="tddt_user_def_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tddt_user_def_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tddt_cyclic_no" Type="Int16" />
+          <Property Name="tddt_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tddt_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="tddt_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tran">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="tran_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tran_comp_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tran_prod_id" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="tran_sub_prod" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="tran_ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="tran_date" Type="DateTime" Precision="3" />
+          <Property Name="tran_clnt_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tran_cloc_id" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="tran_ccy_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tran_ccy1_amt" Type="Double" />
+          <Property Name="tran_exch_rate" Type="Double" />
+          <Property Name="tran_true_rate" Type="Double" />
+          <Property Name="tran_denm_mix" Type="Byte" />
+          <Property Name="tran_tourist_related" Type="Boolean" />
+          <Property Name="tran_user_def_1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tran_user_def_2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tran_cyclic_no" Type="Int16" Nullable="false" />
+          <Property Name="tran_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tran_amend_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tran_state" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ttyp">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="ttyp_type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ttyp_description" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ttyp_cyclic_no" Type="Int16" />
+          <Property Name="ttyp_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ttyp_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="ttyp_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="usr">
+          <Key>
+            <PropertyRef Name="unique_id" />
+          </Key>
+          <Property Name="usrs_company" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usrs_login" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usrs_password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usrs_level" Type="Double" Nullable="false" />
+          <Property Name="usrs_pwd_changed_date" Type="DateTime" Precision="3" />
+          <Property Name="usrs_pwd_attempts" Type="Int16" />
+          <Property Name="usrs_status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="usrs_cyclic_no" Type="Int16" />
+          <Property Name="usrs_user_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="usrs_amend_date" Type="DateTime" Precision="3" />
+          <Property Name="usrs_state" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="TMOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ccies" EntityType="Self.ccy" />
+          <EntitySet Name="ccyrs" EntityType="Self.ccyr" />
+          <EntitySet Name="ccyts" EntityType="Self.ccyt" />
+          <EntitySet Name="clnts" EntityType="Self.clnt" />
+          <EntitySet Name="clocs" EntityType="Self.cloc" />
+          <EntitySet Name="cnrds" EntityType="Self.cnrd" />
+          <EntitySet Name="cnties" EntityType="Self.cnty" />
+          <EntitySet Name="comments" EntityType="Self.comment" />
+          <EntitySet Name="comns" EntityType="Self.comn" />
+          <EntitySet Name="comps" EntityType="Self.comp" />
+          <EntitySet Name="comts" EntityType="Self.comt" />
+          <EntitySet Name="delis" EntityType="Self.deli" />
+          <EntitySet Name="dlvies" EntityType="Self.dlvy" />
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperty" />
+          <EntitySet Name="estls" EntityType="Self.estl" />
+          <EntitySet Name="insts" EntityType="Self.inst" />
+          <EntitySet Name="phists" EntityType="Self.phist" />
+          <EntitySet Name="prefs" EntityType="Self.pref" />
+          <EntitySet Name="prods" EntityType="Self.prod" />
+          <EntitySet Name="setls" EntityType="Self.setl" />
+          <EntitySet Name="stdns" EntityType="Self.stdn" />
+          <EntitySet Name="stlts" EntityType="Self.stlt" />
+          <EntitySet Name="taxbs" EntityType="Self.taxb" />
+          <EntitySet Name="taxs" EntityType="Self.tax" />
+          <EntitySet Name="tddts" EntityType="Self.tddt" />
+          <EntitySet Name="trans" EntityType="Self.tran" />
+          <EntitySet Name="ttyps" EntityType="Self.ttyp" />
+          <EntitySet Name="usrs" EntityType="Self.usr" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TMOModelStoreContainer" CdmEntityContainer="TMOEntities">
+          <EntitySetMapping Name="ccies">
+            <EntityTypeMapping TypeName="TMOModel.ccy">
+              <MappingFragment StoreEntitySet="ccy">
+                <ScalarProperty Name="ccy_code" ColumnName="ccy_code" />
+                <ScalarProperty Name="ccy_name" ColumnName="ccy_name" />
+                <ScalarProperty Name="ccy_decm_plc" ColumnName="ccy_decm_plc" />
+                <ScalarProperty Name="ccy_ind" ColumnName="ccy_ind" />
+                <ScalarProperty Name="ccy_quote_unit" ColumnName="ccy_quote_unit" />
+                <ScalarProperty Name="ccy_seq" ColumnName="ccy_seq" />
+                <ScalarProperty Name="ccy_internal_code" ColumnName="ccy_internal_code" />
+                <ScalarProperty Name="ccy_cyclic_no" ColumnName="ccy_cyclic_no" />
+                <ScalarProperty Name="ccy_user_id" ColumnName="ccy_user_id" />
+                <ScalarProperty Name="ccy_amend_date" ColumnName="ccy_amend_date" />
+                <ScalarProperty Name="ccy_state" ColumnName="ccy_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ccyrs">
+            <EntityTypeMapping TypeName="TMOModel.ccyr">
+              <MappingFragment StoreEntitySet="ccyr">
+                <ScalarProperty Name="ccyr_ccy_code" ColumnName="ccyr_ccy_code" />
+                <ScalarProperty Name="ccyr_ccyt_type" ColumnName="ccyr_ccyt_type" />
+                <ScalarProperty Name="ccyr_date_time" ColumnName="ccyr_date_time" />
+                <ScalarProperty Name="ccyr_cost_rate" ColumnName="ccyr_cost_rate" />
+                <ScalarProperty Name="ccyr_margin_adj" ColumnName="ccyr_margin_adj" />
+                <ScalarProperty Name="ccyr_rate" ColumnName="ccyr_rate" />
+                <ScalarProperty Name="ccyr_cyclic_no" ColumnName="ccyr_cyclic_no" />
+                <ScalarProperty Name="ccyr_user_id" ColumnName="ccyr_user_id" />
+                <ScalarProperty Name="ccyr_amend_date" ColumnName="ccyr_amend_date" />
+                <ScalarProperty Name="ccyr_state" ColumnName="ccyr_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ccyts">
+            <EntityTypeMapping TypeName="TMOModel.ccyt">
+              <MappingFragment StoreEntitySet="ccyt">
+                <ScalarProperty Name="ccyt_type" ColumnName="ccyt_type" />
+                <ScalarProperty Name="ccyt_name" ColumnName="ccyt_name" />
+                <ScalarProperty Name="ccyt_margin_ind" ColumnName="ccyt_margin_ind" />
+                <ScalarProperty Name="ccyt_cyclic_no" ColumnName="ccyt_cyclic_no" />
+                <ScalarProperty Name="ccyt_user_id" ColumnName="ccyt_user_id" />
+                <ScalarProperty Name="ccyt_amend_date" ColumnName="ccyt_amend_date" />
+                <ScalarProperty Name="ccyt_state" ColumnName="ccyt_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clnts">
+            <EntityTypeMapping TypeName="TMOModel.clnt">
+              <MappingFragment StoreEntitySet="clnt">
+                <ScalarProperty Name="clnt_id" ColumnName="clnt_id" />
+                <ScalarProperty Name="clnt_short_name" ColumnName="clnt_short_name" />
+                <ScalarProperty Name="clnt_long_name" ColumnName="clnt_long_name" />
+                <ScalarProperty Name="clnt_cyclic_no" ColumnName="clnt_cyclic_no" />
+                <ScalarProperty Name="clnt_user_id" ColumnName="clnt_user_id" />
+                <ScalarProperty Name="clnt_amend_date" ColumnName="clnt_amend_date" />
+                <ScalarProperty Name="clnt_state" ColumnName="clnt_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clocs">
+            <EntityTypeMapping TypeName="TMOModel.cloc">
+              <MappingFragment StoreEntitySet="cloc">
+                <ScalarProperty Name="cloc_clnt_id" ColumnName="cloc_clnt_id" />
+                <ScalarProperty Name="cloc_id" ColumnName="cloc_id" />
+                <ScalarProperty Name="cloc_name" ColumnName="cloc_name" />
+                <ScalarProperty Name="cloc_addr_1" ColumnName="cloc_addr_1" />
+                <ScalarProperty Name="cloc_addr_2" ColumnName="cloc_addr_2" />
+                <ScalarProperty Name="cloc_addr_3" ColumnName="cloc_addr_3" />
+                <ScalarProperty Name="cloc_postcode" ColumnName="cloc_postcode" />
+                <ScalarProperty Name="cloc_cnty_code" ColumnName="cloc_cnty_code" />
+                <ScalarProperty Name="cloc_limit" ColumnName="cloc_limit" />
+                <ScalarProperty Name="cloc_email_addr" ColumnName="cloc_email_addr" />
+                <ScalarProperty Name="cloc_phone_no" ColumnName="cloc_phone_no" />
+                <ScalarProperty Name="cloc_cyclic_no" ColumnName="cloc_cyclic_no" />
+                <ScalarProperty Name="cloc_user_id" ColumnName="cloc_user_id" />
+                <ScalarProperty Name="cloc_amend_date" ColumnName="cloc_amend_date" />
+                <ScalarProperty Name="cloc_state" ColumnName="cloc_state" />
+                <ScalarProperty Name="cloc_ttyp_type" ColumnName="cloc_ttyp_type" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnrds">
+            <EntityTypeMapping TypeName="TMOModel.cnrd">
+              <MappingFragment StoreEntitySet="cnrd">
+                <ScalarProperty Name="cnrd_cnty_code" ColumnName="cnrd_cnty_code" />
+                <ScalarProperty Name="cnrd_prod_id" ColumnName="cnrd_prod_id" />
+                <ScalarProperty Name="cnrd_ccy_code" ColumnName="cnrd_ccy_code" />
+                <ScalarProperty Name="cnrd_sort_order" ColumnName="cnrd_sort_order" />
+                <ScalarProperty Name="cnrd_cyclic_no" ColumnName="cnrd_cyclic_no" />
+                <ScalarProperty Name="cnrd_user_id" ColumnName="cnrd_user_id" />
+                <ScalarProperty Name="cnrd_amend_date" ColumnName="cnrd_amend_date" />
+                <ScalarProperty Name="cnrd_state" ColumnName="cnrd_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cnties">
+            <EntityTypeMapping TypeName="TMOModel.cnty">
+              <MappingFragment StoreEntitySet="cnty">
+                <ScalarProperty Name="cnty_code" ColumnName="cnty_code" />
+                <ScalarProperty Name="cnty_name" ColumnName="cnty_name" />
+                <ScalarProperty Name="cnty_cyclic_no" ColumnName="cnty_cyclic_no" />
+                <ScalarProperty Name="cnty_user_id" ColumnName="cnty_user_id" />
+                <ScalarProperty Name="cnty_amend_date" ColumnName="cnty_amend_date" />
+                <ScalarProperty Name="cnty_state" ColumnName="cnty_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="TMOModel.comment">
+              <MappingFragment StoreEntitySet="comments">
+                <ScalarProperty Name="comments_table" ColumnName="comments_table" />
+                <ScalarProperty Name="comments_index_1" ColumnName="comments_index_1" />
+                <ScalarProperty Name="comments_index_2" ColumnName="comments_index_2" />
+                <ScalarProperty Name="comments_notes" ColumnName="comments_notes" />
+                <ScalarProperty Name="comments_cyclic_no" ColumnName="comments_cyclic_no" />
+                <ScalarProperty Name="comments_user_id" ColumnName="comments_user_id" />
+                <ScalarProperty Name="comments_amend_date" ColumnName="comments_amend_date" />
+                <ScalarProperty Name="comments_state" ColumnName="comments_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comns">
+            <EntityTypeMapping TypeName="TMOModel.comn">
+              <MappingFragment StoreEntitySet="comn">
+                <ScalarProperty Name="comn_prod_id" ColumnName="comn_prod_id" />
+                <ScalarProperty Name="comn_clnt_id" ColumnName="comn_clnt_id" />
+                <ScalarProperty Name="comn_sub_prod" ColumnName="comn_sub_prod" />
+                <ScalarProperty Name="comn_ttyp_type" ColumnName="comn_ttyp_type" />
+                <ScalarProperty Name="comn_settle_ccy" ColumnName="comn_settle_ccy" />
+                <ScalarProperty Name="comn_min_amt" ColumnName="comn_min_amt" />
+                <ScalarProperty Name="comn_max_amt" ColumnName="comn_max_amt" />
+                <ScalarProperty Name="comn_fixed" ColumnName="comn_fixed" />
+                <ScalarProperty Name="comn_fee_per_item" ColumnName="comn_fee_per_item" />
+                <ScalarProperty Name="comn_rate" ColumnName="comn_rate" />
+                <ScalarProperty Name="comn_cyclic_no" ColumnName="comn_cyclic_no" />
+                <ScalarProperty Name="comn_user_id" ColumnName="comn_user_id" />
+                <ScalarProperty Name="comn_amend_date" ColumnName="comn_amend_date" />
+                <ScalarProperty Name="comn_state" ColumnName="comn_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comps">
+            <EntityTypeMapping TypeName="TMOModel.comp">
+              <MappingFragment StoreEntitySet="comp">
+                <ScalarProperty Name="comp_tran_comp_id" ColumnName="comp_tran_comp_id" />
+                <ScalarProperty Name="comp_id_type" ColumnName="comp_id_type" />
+                <ScalarProperty Name="comp_id_number" ColumnName="comp_id_number" />
+                <ScalarProperty Name="comp_id_issue_place" ColumnName="comp_id_issue_place" />
+                <ScalarProperty Name="comp_id_issue_date" ColumnName="comp_id_issue_date" />
+                <ScalarProperty Name="comp_spare_1" ColumnName="comp_spare_1" />
+                <ScalarProperty Name="comp_spare_2" ColumnName="comp_spare_2" />
+                <ScalarProperty Name="comp_cyclic_no" ColumnName="comp_cyclic_no" />
+                <ScalarProperty Name="comp_user_id" ColumnName="comp_user_id" />
+                <ScalarProperty Name="comp_amend_date" ColumnName="comp_amend_date" />
+                <ScalarProperty Name="comp_state" ColumnName="comp_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comts">
+            <EntityTypeMapping TypeName="TMOModel.comt">
+              <MappingFragment StoreEntitySet="comt">
+                <ScalarProperty Name="comt_comn_prod_id" ColumnName="comt_comn_prod_id" />
+                <ScalarProperty Name="comt_description" ColumnName="comt_description" />
+                <ScalarProperty Name="comt_cyclic_no" ColumnName="comt_cyclic_no" />
+                <ScalarProperty Name="comt_user_id" ColumnName="comt_user_id" />
+                <ScalarProperty Name="comt_amend_date" ColumnName="comt_amend_date" />
+                <ScalarProperty Name="comt_state" ColumnName="comt_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="delis">
+            <EntityTypeMapping TypeName="TMOModel.deli">
+              <MappingFragment StoreEntitySet="deli">
+                <ScalarProperty Name="deli_comp_id" ColumnName="deli_comp_id" />
+                <ScalarProperty Name="deli_tran_id" ColumnName="deli_tran_id" />
+                <ScalarProperty Name="deli_delv_date" ColumnName="deli_delv_date" />
+                <ScalarProperty Name="deli_name_1" ColumnName="deli_name_1" />
+                <ScalarProperty Name="deli_name_2" ColumnName="deli_name_2" />
+                <ScalarProperty Name="deli_company_name" ColumnName="deli_company_name" />
+                <ScalarProperty Name="deli_dept_name" ColumnName="deli_dept_name" />
+                <ScalarProperty Name="deli_addr_1" ColumnName="deli_addr_1" />
+                <ScalarProperty Name="deli_addr_2" ColumnName="deli_addr_2" />
+                <ScalarProperty Name="deli_addr_3" ColumnName="deli_addr_3" />
+                <ScalarProperty Name="deli_postcode" ColumnName="deli_postcode" />
+                <ScalarProperty Name="deli_phone" ColumnName="deli_phone" />
+                <ScalarProperty Name="deli_instructions" ColumnName="deli_instructions" />
+                <ScalarProperty Name="deli_comments" ColumnName="deli_comments" />
+                <ScalarProperty Name="deli_dlvy_code" ColumnName="deli_dlvy_code" />
+                <ScalarProperty Name="deli_user_def_1" ColumnName="deli_user_def_1" />
+                <ScalarProperty Name="deli_user_def_2" ColumnName="deli_user_def_2" />
+                <ScalarProperty Name="deli_cyclic_no" ColumnName="deli_cyclic_no" />
+                <ScalarProperty Name="deli_user_id" ColumnName="deli_user_id" />
+                <ScalarProperty Name="deli_amend_date" ColumnName="deli_amend_date" />
+                <ScalarProperty Name="deli_state" ColumnName="deli_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dlvies">
+            <EntityTypeMapping TypeName="TMOModel.dlvy">
+              <MappingFragment StoreEntitySet="dlvy">
+                <ScalarProperty Name="dlvy_code" ColumnName="dlvy_code" />
+                <ScalarProperty Name="dlvy_description" ColumnName="dlvy_description" />
+                <ScalarProperty Name="dlvy_rate" ColumnName="dlvy_rate" />
+                <ScalarProperty Name="dlvy_ccy_code" ColumnName="dlvy_ccy_code" />
+                <ScalarProperty Name="dlvy_sort_order" ColumnName="dlvy_sort_order" />
+                <ScalarProperty Name="dlvy_cyclic_no" ColumnName="dlvy_cyclic_no" />
+                <ScalarProperty Name="dlvy_user_id" ColumnName="dlvy_user_id" />
+                <ScalarProperty Name="dlvy_amend_date" ColumnName="dlvy_amend_date" />
+                <ScalarProperty Name="dlvy_state" ColumnName="dlvy_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dtproperties">
+            <EntityTypeMapping TypeName="TMOModel.dtproperty">
+              <MappingFragment StoreEntitySet="dtproperties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="objectid" ColumnName="objectid" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estls">
+            <EntityTypeMapping TypeName="TMOModel.estl">
+              <MappingFragment StoreEntitySet="estl">
+                <ScalarProperty Name="estl_tran_comp_id" ColumnName="estl_tran_comp_id" />
+                <ScalarProperty Name="estl_stlt_type" ColumnName="estl_stlt_type" />
+                <ScalarProperty Name="estl_card_type" ColumnName="estl_card_type" />
+                <ScalarProperty Name="estl_card_expiry" ColumnName="estl_card_expiry" />
+                <ScalarProperty Name="estl_card_name" ColumnName="estl_card_name" />
+                <ScalarProperty Name="estl_card_number" ColumnName="estl_card_number" />
+                <ScalarProperty Name="estl_card_auth" ColumnName="estl_card_auth" />
+                <ScalarProperty Name="estl_card_start" ColumnName="estl_card_start" />
+                <ScalarProperty Name="estl_issue_no" ColumnName="estl_issue_no" />
+                <ScalarProperty Name="estl_amount" ColumnName="estl_amount" />
+                <ScalarProperty Name="estl_ccy_code" ColumnName="estl_ccy_code" />
+                <ScalarProperty Name="estl_user_def_1" ColumnName="estl_user_def_1" />
+                <ScalarProperty Name="estl_user_def_2" ColumnName="estl_user_def_2" />
+                <ScalarProperty Name="estl_cyclic_no" ColumnName="estl_cyclic_no" />
+                <ScalarProperty Name="estl_user_id" ColumnName="estl_user_id" />
+                <ScalarProperty Name="estl_amend_date" ColumnName="estl_amend_date" />
+                <ScalarProperty Name="estl_state" ColumnName="estl_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="insts">
+            <EntityTypeMapping TypeName="TMOModel.inst">
+              <MappingFragment StoreEntitySet="inst">
+                <ScalarProperty Name="inst_property" ColumnName="inst_property" />
+                <ScalarProperty Name="inst_description" ColumnName="inst_description" />
+                <ScalarProperty Name="inst_value" ColumnName="inst_value" />
+                <ScalarProperty Name="inst_sort_order" ColumnName="inst_sort_order" />
+                <ScalarProperty Name="inst_encrypt" ColumnName="inst_encrypt" />
+                <ScalarProperty Name="inst_cyclic_no" ColumnName="inst_cyclic_no" />
+                <ScalarProperty Name="inst_user_id" ColumnName="inst_user_id" />
+                <ScalarProperty Name="inst_amend_date" ColumnName="inst_amend_date" />
+                <ScalarProperty Name="inst_state" ColumnName="inst_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="phists">
+            <EntityTypeMapping TypeName="TMOModel.phist">
+              <MappingFragment StoreEntitySet="phist">
+                <ScalarProperty Name="phist_id" ColumnName="phist_id" />
+                <ScalarProperty Name="phist_usrs_unique_id" ColumnName="phist_usrs_unique_id" />
+                <ScalarProperty Name="phist_password" ColumnName="phist_password" />
+                <ScalarProperty Name="phist_amend_date" ColumnName="phist_amend_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prefs">
+            <EntityTypeMapping TypeName="TMOModel.pref">
+              <MappingFragment StoreEntitySet="pref">
+                <ScalarProperty Name="pref_clnt_id" ColumnName="pref_clnt_id" />
+                <ScalarProperty Name="pref_loyalty_name" ColumnName="pref_loyalty_name" />
+                <ScalarProperty Name="pref_email" ColumnName="pref_email" />
+                <ScalarProperty Name="pref_home_www" ColumnName="pref_home_www" />
+                <ScalarProperty Name="pref_main_back" ColumnName="pref_main_back" />
+                <ScalarProperty Name="pref_main_fore" ColumnName="pref_main_fore" />
+                <ScalarProperty Name="pref_table_back" ColumnName="pref_table_back" />
+                <ScalarProperty Name="pref_table_fore" ColumnName="pref_table_fore" />
+                <ScalarProperty Name="pref_check_blz" ColumnName="pref_check_blz" />
+                <ScalarProperty Name="pref_check_accntno" ColumnName="pref_check_accntno" />
+                <ScalarProperty Name="pref_home_dlvy" ColumnName="pref_home_dlvy" />
+                <ScalarProperty Name="pref_cyclic_no" ColumnName="pref_cyclic_no" />
+                <ScalarProperty Name="pref_user_id" ColumnName="pref_user_id" />
+                <ScalarProperty Name="pref_amend_date" ColumnName="pref_amend_date" />
+                <ScalarProperty Name="pref_state" ColumnName="pref_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prods">
+            <EntityTypeMapping TypeName="TMOModel.prod">
+              <MappingFragment StoreEntitySet="prod">
+                <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+                <ScalarProperty Name="prod_sub_prod" ColumnName="prod_sub_prod" />
+                <ScalarProperty Name="prod_ttyp_type" ColumnName="prod_ttyp_type" />
+                <ScalarProperty Name="prod_desc" ColumnName="prod_desc" />
+                <ScalarProperty Name="prod_min_order" ColumnName="prod_min_order" />
+                <ScalarProperty Name="prod_max_order" ColumnName="prod_max_order" />
+                <ScalarProperty Name="prod_show_available" ColumnName="prod_show_available" />
+                <ScalarProperty Name="prod_ccyt_type" ColumnName="prod_ccyt_type" />
+                <ScalarProperty Name="prod_cyclic_no" ColumnName="prod_cyclic_no" />
+                <ScalarProperty Name="prod_user_id" ColumnName="prod_user_id" />
+                <ScalarProperty Name="prod_amend_date" ColumnName="prod_amend_date" />
+                <ScalarProperty Name="prod_state" ColumnName="prod_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="setls">
+            <EntityTypeMapping TypeName="TMOModel.setl">
+              <MappingFragment StoreEntitySet="setl">
+                <ScalarProperty Name="setl_tran_comp_id" ColumnName="setl_tran_comp_id" />
+                <ScalarProperty Name="setl_xref_id" ColumnName="setl_xref_id" />
+                <ScalarProperty Name="setl_type" ColumnName="setl_type" />
+                <ScalarProperty Name="setl_clnt_id" ColumnName="setl_clnt_id" />
+                <ScalarProperty Name="setl_cloc_id" ColumnName="setl_cloc_id" />
+                <ScalarProperty Name="setl_appl_name1" ColumnName="setl_appl_name1" />
+                <ScalarProperty Name="setl_appl_name2" ColumnName="setl_appl_name2" />
+                <ScalarProperty Name="setl_appl_addr1" ColumnName="setl_appl_addr1" />
+                <ScalarProperty Name="setl_appl_addr2" ColumnName="setl_appl_addr2" />
+                <ScalarProperty Name="setl_appl_addr3" ColumnName="setl_appl_addr3" />
+                <ScalarProperty Name="setl_email" ColumnName="setl_email" />
+                <ScalarProperty Name="setl_appl_postcode" ColumnName="setl_appl_postcode" />
+                <ScalarProperty Name="setl_local_ccy_amount" ColumnName="setl_local_ccy_amount" />
+                <ScalarProperty Name="setl_comm_amount" ColumnName="setl_comm_amount" />
+                <ScalarProperty Name="setl_tax_amount" ColumnName="setl_tax_amount" />
+                <ScalarProperty Name="setl_ccy_code" ColumnName="setl_ccy_code" />
+                <ScalarProperty Name="setl_delivery_code" ColumnName="setl_delivery_code" />
+                <ScalarProperty Name="setl_delivery_amt" ColumnName="setl_delivery_amt" />
+                <ScalarProperty Name="setl_status" ColumnName="setl_status" />
+                <ScalarProperty Name="setl_phone_no" ColumnName="setl_phone_no" />
+                <ScalarProperty Name="setl_work_phone" ColumnName="setl_work_phone" />
+                <ScalarProperty Name="setl_mobile_phone" ColumnName="setl_mobile_phone" />
+                <ScalarProperty Name="setl_dlvy_ref" ColumnName="setl_dlvy_ref" />
+                <ScalarProperty Name="setl_market_info" ColumnName="setl_market_info" />
+                <ScalarProperty Name="setl_loyalty_no" ColumnName="setl_loyalty_no" />
+                <ScalarProperty Name="setl_user_def_1" ColumnName="setl_user_def_1" />
+                <ScalarProperty Name="setl_user_def_2" ColumnName="setl_user_def_2" />
+                <ScalarProperty Name="setl_cyclic_no" ColumnName="setl_cyclic_no" />
+                <ScalarProperty Name="setl_user_id" ColumnName="setl_user_id" />
+                <ScalarProperty Name="setl_amend_date" ColumnName="setl_amend_date" />
+                <ScalarProperty Name="setl_state" ColumnName="setl_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stdns">
+            <EntityTypeMapping TypeName="TMOModel.stdn">
+              <MappingFragment StoreEntitySet="stdn">
+                <ScalarProperty Name="stdn_prod_id" ColumnName="stdn_prod_id" />
+                <ScalarProperty Name="stdn_ccy_code" ColumnName="stdn_ccy_code" />
+                <ScalarProperty Name="stdn_demn_price" ColumnName="stdn_demn_price" />
+                <ScalarProperty Name="stdn_denm_class" ColumnName="stdn_denm_class" />
+                <ScalarProperty Name="stdn_cyclic_no" ColumnName="stdn_cyclic_no" />
+                <ScalarProperty Name="stdn_user_id" ColumnName="stdn_user_id" />
+                <ScalarProperty Name="stdn_amend_date" ColumnName="stdn_amend_date" />
+                <ScalarProperty Name="stdn_state" ColumnName="stdn_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stlts">
+            <EntityTypeMapping TypeName="TMOModel.stlt">
+              <MappingFragment StoreEntitySet="stlt">
+                <ScalarProperty Name="stlt_type" ColumnName="stlt_type" />
+                <ScalarProperty Name="stlt_code" ColumnName="stlt_code" />
+                <ScalarProperty Name="stlt_name" ColumnName="stlt_name" />
+                <ScalarProperty Name="stlt_cyclic_no" ColumnName="stlt_cyclic_no" />
+                <ScalarProperty Name="stlt_user_id" ColumnName="stlt_user_id" />
+                <ScalarProperty Name="stlt_amend_date" ColumnName="stlt_amend_date" />
+                <ScalarProperty Name="stlt_state" ColumnName="stlt_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taxbs">
+            <EntityTypeMapping TypeName="TMOModel.taxb">
+              <MappingFragment StoreEntitySet="taxb">
+                <ScalarProperty Name="taxb_code" ColumnName="taxb_code" />
+                <ScalarProperty Name="taxb_basis" ColumnName="taxb_basis" />
+                <ScalarProperty Name="taxb_cyclic_no" ColumnName="taxb_cyclic_no" />
+                <ScalarProperty Name="taxb_user_id" ColumnName="taxb_user_id" />
+                <ScalarProperty Name="taxb_amend_date" ColumnName="taxb_amend_date" />
+                <ScalarProperty Name="taxb_state" ColumnName="taxb_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="taxs">
+            <EntityTypeMapping TypeName="TMOModel.tax">
+              <MappingFragment StoreEntitySet="taxs">
+                <ScalarProperty Name="taxs_prod_id" ColumnName="taxs_prod_id" />
+                <ScalarProperty Name="taxs_sub_prod_id" ColumnName="taxs_sub_prod_id" />
+                <ScalarProperty Name="taxs_taxb_code" ColumnName="taxs_taxb_code" />
+                <ScalarProperty Name="taxs_ttyp_type" ColumnName="taxs_ttyp_type" />
+                <ScalarProperty Name="taxs_rate" ColumnName="taxs_rate" />
+                <ScalarProperty Name="taxs_cyclic_no" ColumnName="taxs_cyclic_no" />
+                <ScalarProperty Name="taxs_user_id" ColumnName="taxs_user_id" />
+                <ScalarProperty Name="taxs_amend_date" ColumnName="taxs_amend_date" />
+                <ScalarProperty Name="taxs_state" ColumnName="taxs_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tddts">
+            <EntityTypeMapping TypeName="TMOModel.tddt">
+              <MappingFragment StoreEntitySet="tddt">
+                <ScalarProperty Name="tddt_tran_id" ColumnName="tddt_tran_id" />
+                <ScalarProperty Name="tddt_row_no" ColumnName="tddt_row_no" />
+                <ScalarProperty Name="tddt_ccy_denm" ColumnName="tddt_ccy_denm" />
+                <ScalarProperty Name="tddt_pack_size" ColumnName="tddt_pack_size" />
+                <ScalarProperty Name="tddt_qty" ColumnName="tddt_qty" />
+                <ScalarProperty Name="tddt_denm_class" ColumnName="tddt_denm_class" />
+                <ScalarProperty Name="tddt_user_def_1" ColumnName="tddt_user_def_1" />
+                <ScalarProperty Name="tddt_user_def_2" ColumnName="tddt_user_def_2" />
+                <ScalarProperty Name="tddt_cyclic_no" ColumnName="tddt_cyclic_no" />
+                <ScalarProperty Name="tddt_user_id" ColumnName="tddt_user_id" />
+                <ScalarProperty Name="tddt_amend_date" ColumnName="tddt_amend_date" />
+                <ScalarProperty Name="tddt_state" ColumnName="tddt_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trans">
+            <EntityTypeMapping TypeName="TMOModel.tran">
+              <MappingFragment StoreEntitySet="trans">
+                <ScalarProperty Name="tran_id" ColumnName="tran_id" />
+                <ScalarProperty Name="tran_comp_id" ColumnName="tran_comp_id" />
+                <ScalarProperty Name="tran_prod_id" ColumnName="tran_prod_id" />
+                <ScalarProperty Name="tran_sub_prod" ColumnName="tran_sub_prod" />
+                <ScalarProperty Name="tran_ttyp_type" ColumnName="tran_ttyp_type" />
+                <ScalarProperty Name="tran_date" ColumnName="tran_date" />
+                <ScalarProperty Name="tran_clnt_id" ColumnName="tran_clnt_id" />
+                <ScalarProperty Name="tran_cloc_id" ColumnName="tran_cloc_id" />
+                <ScalarProperty Name="tran_ccy_code" ColumnName="tran_ccy_code" />
+                <ScalarProperty Name="tran_ccy1_amt" ColumnName="tran_ccy1_amt" />
+                <ScalarProperty Name="tran_exch_rate" ColumnName="tran_exch_rate" />
+                <ScalarProperty Name="tran_true_rate" ColumnName="tran_true_rate" />
+                <ScalarProperty Name="tran_denm_mix" ColumnName="tran_denm_mix" />
+                <ScalarProperty Name="tran_tourist_related" ColumnName="tran_tourist_related" />
+                <ScalarProperty Name="tran_user_def_1" ColumnName="tran_user_def_1" />
+                <ScalarProperty Name="tran_user_def_2" ColumnName="tran_user_def_2" />
+                <ScalarProperty Name="tran_cyclic_no" ColumnName="tran_cyclic_no" />
+                <ScalarProperty Name="tran_user_id" ColumnName="tran_user_id" />
+                <ScalarProperty Name="tran_amend_date" ColumnName="tran_amend_date" />
+                <ScalarProperty Name="tran_state" ColumnName="tran_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ttyps">
+            <EntityTypeMapping TypeName="TMOModel.ttyp">
+              <MappingFragment StoreEntitySet="ttyp">
+                <ScalarProperty Name="ttyp_type" ColumnName="ttyp_type" />
+                <ScalarProperty Name="ttyp_description" ColumnName="ttyp_description" />
+                <ScalarProperty Name="ttyp_cyclic_no" ColumnName="ttyp_cyclic_no" />
+                <ScalarProperty Name="ttyp_user_id" ColumnName="ttyp_user_id" />
+                <ScalarProperty Name="ttyp_amend_date" ColumnName="ttyp_amend_date" />
+                <ScalarProperty Name="ttyp_state" ColumnName="ttyp_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usrs">
+            <EntityTypeMapping TypeName="TMOModel.usr">
+              <MappingFragment StoreEntitySet="usrs">
+                <ScalarProperty Name="usrs_company" ColumnName="usrs_company" />
+                <ScalarProperty Name="usrs_login" ColumnName="usrs_login" />
+                <ScalarProperty Name="usrs_password" ColumnName="usrs_password" />
+                <ScalarProperty Name="usrs_level" ColumnName="usrs_level" />
+                <ScalarProperty Name="usrs_pwd_changed_date" ColumnName="usrs_pwd_changed_date" />
+                <ScalarProperty Name="usrs_pwd_attempts" ColumnName="usrs_pwd_attempts" />
+                <ScalarProperty Name="usrs_status" ColumnName="usrs_status" />
+                <ScalarProperty Name="usrs_cyclic_no" ColumnName="usrs_cyclic_no" />
+                <ScalarProperty Name="usrs_user_id" ColumnName="usrs_user_id" />
+                <ScalarProperty Name="usrs_amend_date" ColumnName="usrs_amend_date" />
+                <ScalarProperty Name="usrs_state" ColumnName="usrs_state" />
+                <ScalarProperty Name="unique_id" ColumnName="unique_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
