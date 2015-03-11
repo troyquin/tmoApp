@@ -17,10 +17,23 @@ namespace tmoWebAPI3.Controllers
         private TMOEntities db = new TMOEntities();
 
         // GET: api/ccies
-        public IQueryable<ccy> Getccies()
-        {
-            return db.ccies;
-        }
+       	public IEnumerable<ccy> Getccies(	string q = null, 
+																					string sort = null, 
+																					bool desc = false,
+																					int? limit = null, 
+																					int offset = 0)
+				{
+					var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<ccy>();
+
+					IQueryable<ccy> items = string.IsNullOrEmpty(sort) ? list.OrderBy(o => o.ccy_code)
+							: list.OrderBy(String.Format("it.{0} {1}", sort, desc ? "DESC" : "ASC"));
+
+					if (!string.IsNullOrEmpty(q) && q != "undefined") items = items.Where(t => t.ccy_code.Contains(q));
+
+					if (offset > 0) items = items.Skip(offset);
+					if (limit.HasValue) items = items.Take(limit.Value);
+					return items;
+				}
 
         // GET: api/ccies/5
         [ResponseType(typeof(ccy))]
