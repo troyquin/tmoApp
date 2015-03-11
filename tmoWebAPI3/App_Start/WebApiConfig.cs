@@ -18,7 +18,7 @@ namespace tmoWebAPI3
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
-						var corsAttr = new EnableCorsAttribute("http://tmo.apphb.com", "*", "*");
+						var corsAttr = new EnableCorsAttribute("http://localhost:3000", "*", "*");
 						config.EnableCors(corsAttr);
 
             // Web API routes
