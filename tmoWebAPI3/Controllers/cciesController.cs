@@ -21,7 +21,8 @@ namespace tmoWebAPI3.Controllers
 																					string sort = null, 
 																					bool desc = false,
 																					int? limit = null, 
-																					int offset = 0)
+																					int offset = 0,
+																					int pageSize = 30)
 				{
 					var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<ccy>();
 
@@ -30,7 +31,14 @@ namespace tmoWebAPI3.Controllers
 
 					if (!string.IsNullOrEmpty(q) && q != "undefined") items = items.Where(t => t.ccy_code.Contains(q));
 
-					if (offset > 0) items = items.Skip(offset);
+					
+					var totalCount = items.Count();
+					var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+					
+					//return repository.Get().Skip(pageIndex * pageSize).Take(pageSize);
+
+				
+					//if (offset > 0) items = items.Skip(offset);
 					if (limit.HasValue) items = items.Take(limit.Value);
 					return items;
 				}
@@ -62,7 +70,7 @@ namespace tmoWebAPI3.Controllers
                 return BadRequest();
             }
 
-            db.Entry(ccy).State = EntityState.Modified;
+            db.Entry(ccy).State = System.Data.Entity.EntityState.Modified;
 
             try
             {
@@ -114,6 +122,7 @@ namespace tmoWebAPI3.Controllers
             return Ok(ccy);
         }
 
+						
         protected override void Dispose(bool disposing)
         {
             if (disposing)
