@@ -16,7 +16,15 @@ namespace tmoWebAPI3.Models
             // Add custom user claims here
             return userIdentity;
         }
-    }
+
+				public string FirstName { get; set; }
+
+				public object[] LastName { get; set; }
+
+				public int Level { get; set; }
+
+				public System.DateTime JoinDate { get; set; }
+		}
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

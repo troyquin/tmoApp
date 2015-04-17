@@ -15,8 +15,9 @@ namespace tmoWebAPI3.Controllers
     public class cciesController : ApiController
     {
         private TMOEntities db = new TMOEntities();
-
+				
         // GET: api/ccies
+				[Authorize]
        	public IEnumerable<ccy> Getccies(	string q = null, 
 																					string sort = null, 
 																					bool desc = false,
